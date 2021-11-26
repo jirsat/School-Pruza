@@ -1,12 +1,12 @@
 %%%%
-% This function is used to set motors to stand by
-% Movement can by controlled by setting speed
+% This function is used to rotate robot
 %%%%
-% pruza - structure representing robot
+% GLOBAL pruza - structure representing robot
 % angle - in degrees, + clockwise, - counterclockwise
 %%%%
-function pruza_rotate(pruza,angle)
-    pruza_ready_movement(pruza)
+function pruza_rotate(angle)
+    global pruza
+    pruza_ready_movement()
     speed = 35;
     direction = sign(angle);
     time = angle*pruza.movement.angletotimecoef;
