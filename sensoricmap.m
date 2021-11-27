@@ -7,10 +7,12 @@ theta = linspace(0, 2*pi, 360);
 
 r1 = scan(theta);
 
-rm = filloutliers(r1, 'next', 'movmedian', 3);
+rm = filloutliers(r1, 'next', 'movmedian', 3); % filter sensor input to remove obvious outliers
 
-[M,I] = max(r1);
-[Mm, Im] = max(rm);
+[M,I] = max(r1); 
+[Mm, Im] = max(rm); % Find where is the longest distance available
+
+% Visualization
 
 targettheta = theta(I);
 targetthetam = theta(Im);
@@ -26,7 +28,9 @@ hold on;
 polarscatter(targetthetam, Mm, "r*")
 title("Filtered signal");
 
-
+%%%%
+% Fuction to produce test data
+%%%%
 function result = scan(theta)
     scale = 0.7;
     N = length(theta);
