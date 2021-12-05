@@ -11,6 +11,10 @@ function pruza_move(v, d,r)
     pruza_ready_movement()
     
     t = abs(d/v);
+    if ~exists('r','var')
+        r = 0;
+    end
+    
     if r ~= 0
         dv = v*(15/abs(r)); %15cm is distance between belts
     else
